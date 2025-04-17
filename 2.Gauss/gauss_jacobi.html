@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauss-Jacobi Method</title>
+    <link rel="stylesheet" href="gauss_jacobi.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script>
+        function gaussJacobi() {
+            // Get user input for coefficients A and constants B
+            var A = [];
+            var B = [];
+            var n = parseInt(document.getElementById("equations").value);
+            for (var i = 0; i < n; i++) {
+                var coefficients = [];
+                for (var j = 0; j < n; j++) {
+                    coefficients.push(parseFloat(document.getElementById("coeff_" + i + "_" + j).value));
+                }
+                A.push(coefficients);
+                B.push(parseFloat(document.getElementById("const_" + i).value));
+            }
+
+            var X = new Array(n).fill(0); // Initial guess
+
+            // Number of iterations
+            var iterations = parseInt(document.getElementById("iterations").value);
+
+            // Perform Gauss-Jacobi iterations
+            for (var k = 0; k < iterations; k++) {
+                var Xnew = [];
+                for (var i = 0; i < n; i++) {
+                    var sum = 0;
+                    for (var j = 0; j < n; j++) {
+                        if (j !== i) {
+                            sum += A[i][j] * X[j];
+                        }
+                    }
+                    Xnew[i] = (B[i] - sum) / A[i][i];
+                }
+                X = Xnew;
+            }
+
+            // Display results
+            var result = "<h2>Result of Gauss jacobi Method :</h2><ul>";
+            for (var i = 0; i < n; i++) {
+                result += "<li>X" + (i + 1) + " = " + X[i].toFixed(6) + "</li>";
+            }
+            result += "</ul>";
+            document.getElementById("output").innerHTML = result;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gauss-Jacobi Method</h1>
+        <p class="subtitle">Solve system of linear equations using Gauss-Jacobi iteration method</p>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="equations">Number of Equations</label>
+                <input type="number" id="equations" value="3" min="2" max="10" class="number-input">
+            </div>
+
+            <div class="matrix-section">
+                <h3>Enter Coefficients Matrix (A) and Constants Vector (B):</h3>
+                <table id="inputTable">
+                    <!-- Coefficients input will be generated here -->
+                </table>
+            </div>
+
+            <div class="input-group">
+                <label for="iterations">Number of Iterations</label>
+                <input type="number" id="iterations" value="10" min="1" max="100" class="number-input">
+            </div>
+
+            <button onclick="gaussJacobi()" class="calculate-btn">
+                <i class='bx bx-calculator'></i>
+                <span>Calculate Solution</span>
+            </button>
+        </div>
+
+        <div class="result-section">
+            <h2>Results</h2>
+            <div id="output" class="result-content"></div>
+        </div>
+    </div>
+
+    <script src="gauss_jacobi.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal().reveal('.input-section', {
+            delay: 200,
+            interval: 100,
+            origin: 'bottom',
+            distance: '20px',
+            easing: 'ease-out'
+        });
+    </script>
+</body>
+
+</html>

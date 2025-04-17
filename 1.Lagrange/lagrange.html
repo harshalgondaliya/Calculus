@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagrange Interpolation</title>
+    <link rel="stylesheet" href="lagrange.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <h1>Lagrange Interpolation</h1>
+        <p class="subtitle">Find the value of a function at any point using Lagrange interpolation</p>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="x_values">Enter x values</label>
+                <input type="text" id="x_values" placeholder="Enter comma-separated x values (e.g., 1,2,3,4)" required>
+            </div>
+
+            <div class="input-group">
+                <label for="y_values">Enter f(x) values</label>
+                <input type="text" id="y_values" placeholder="Enter comma-separated y values (e.g., 2,4,6,8)" required>
+            </div>
+
+            <div class="input-group">
+                <label for="interpolate">Enter x value to interpolate</label>
+                <input type="number" id="interpolate" placeholder="Enter the x value to find f(x)" step="any" required>
+            </div>
+
+            <button onclick="interpolate()" class="calculate-btn">
+                <i class='bx bx-calculator'></i>
+                <span>Calculate Interpolation</span>
+            </button>
+        </div>
+
+        <div class="result-section">
+            <h2>Results</h2>
+            <div id="result" class="result-content">
+                <div class="solution">
+                    <h3>Interpolated Value</h3>
+                    <p id="interpolated-value"></p>
+                </div>
+                <div class="steps">
+                    <h3>Calculation Steps</h3>
+                    <div id="calculation-steps"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lagrange.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal().reveal('.input-section', {
+            delay: 200,
+            interval: 100,
+            origin: 'bottom',
+            distance: '20px',
+            easing: 'ease-out'
+        });
+    </script>
+</body>
+</html>

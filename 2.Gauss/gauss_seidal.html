@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauss-Seidel Method</title>
+    <link rel="stylesheet" href="gauss_seidal.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gauss-Seidel Method</h1>
+        <p class="subtitle">Solve system of linear equations using Gauss-Seidel iteration method</p>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="equations">Number of Equations</label>
+                <input type="number" id="equations" value="3" min="2" max="10" class="number-input">
+            </div>
+
+            <div class="matrix-section">
+                <h3>Enter Coefficients Matrix (A) and Constants Vector (B):</h3>
+                <table id="inputTable">
+                    <!-- Coefficients input will be generated here -->
+                </table>
+            </div>
+
+            <div class="input-group">
+                <label for="tolerance">Tolerance (ε)</label>
+                <input type="number" id="tolerance" value="0.0001" step="0.0001" min="0.000001" max="0.1" class="number-input">
+            </div>
+
+            <div class="input-group">
+                <label for="maxIterations">Maximum Iterations</label>
+                <input type="number" id="maxIterations" value="100" min="1" max="1000" class="number-input">
+            </div>
+
+            <button onclick="gaussSeidel()" class="calculate-btn">
+                <span>Calculate Solution</span>
+            </button>
+        </div>
+
+        <div class="result-section">
+            <h2>Results</h2>
+            <div id="output" class="result-content"></div>
+        </div>
+    </div>
+
+    <script src="gauss_seidal.js"></script>
+</body>
+
+</html>

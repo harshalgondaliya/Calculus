@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newton Interpolation</title>
+    <link rel="stylesheet" href="newton_interpolation.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- =====BOX ICONS===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/boxicons/2.0.7/css/boxicons.min.css">
+    <script>
+        function forward() {
+            // Replace 'photo.jpg' with the path to your photo
+            window.open('forward.jpg', '_blank');
+        }
+
+        function backward() {
+            // Replace 'photo.jpg' with the path to your photo
+            window.open('backward.jpg', '_blank');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Newton Interpolation</h1>
+        <div id="input">
+            <label for="xValues">Enter x values :</label>
+            <input type="text" placeholder="(Comma separeted)" id="xValues"><br>
+            <label for="yValues">Enter y values :</label>
+            <input type="text" placeholder="(Comma separeted)" id="yValues"><br>
+            <label for="x">Enter x :</label>
+            <input type="number" placeholder="(Initial values)" id="x"><br>
+            <button onclick="forwardInterpolation()">Forward Interpolation</button>
+            <button onclick="backwardInterpolation()">Backward Interpolation</button>
+        </div>
+        <div id="output">
+            <h2>Result:</h2>
+            <p id="result"></p>
+        </div>
+    </div>
+    <div class="photo">
+        <h3>If you show only format picture method of Newton Interpolation</h3><br>
+        <button onclick="forward()">Forward</button>
+        <button onclick="backward()">Backward</button>
+    </div>
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="newton_interpolation.js">
+    </script>
+</body>
+
+</html>

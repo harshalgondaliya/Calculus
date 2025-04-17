@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Rank Calculator</title>
+    <link rel="stylesheet" href="r.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Matrix Rank Calculator</h1>
+        <p class="subtitle">Calculate the rank of any matrix using Gauss Elimination</p>
+        
+        <div class="input-section">
+            <div class="dimension-inputs">
+                <div class="input-group">
+                    <label for="rows">Number of Rows</label>
+                    <input type="number" id="rows" min="1" value="3" step="1">
+                </div>
+                
+                <div class="input-group">
+                    <label for="cols">Number of Columns</label>
+                    <input type="number" id="cols" min="1" value="3" step="1">
+                </div>
+            </div>
+
+            <button onclick="createMatrixInput()" class="create-btn">
+                <span>Create Matrix</span>
+            </button>
+
+            <div class="matrix-container">
+                <table id="matrixInput" class="matrix-table"></table>
+            </div>
+
+            <button onclick="calculateRank()" class="calculate-btn">
+                <span>Calculate Rank</span>
+            </button>
+        </div>
+
+        <div class="result-section">
+            <h2>Results</h2>
+            <div id="finalMatrix" class="matrix-result"></div>
+            <div id="rank" class="rank-result"></div>
+            <div id="steps" class="steps-section"></div>
+        </div>
+    </div>
+
+    <script src="r.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal().reveal('.input-section', {
+            delay: 200,
+            interval: 100,
+            origin: 'bottom',
+            distance: '20px',
+            easing: 'ease-out'
+        });
+    </script>
+</body>
+</html>

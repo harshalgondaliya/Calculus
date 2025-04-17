@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inverse Matrix Calculator</title>
+    <link rel="stylesheet" href="IJE.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Inverse Matrix Calculator</h1>
+        <p class="subtitle">Using Gauss-Jordan Elimination Method</p>
+        
+        <div class="input-section">
+            <div class="dimension-inputs">
+                <div class="input-group">
+                    <label for="numRows">
+                        Number of Rows
+                    </label>
+                    <input type="number" id="numRows" min="1" max="10" placeholder="Enter rows">
+                </div>
+                
+                <div class="input-group">
+                    <label for="numCols">
+                        Number of Columns
+                    </label>
+                    <input type="number" id="numCols" min="1" max="10" placeholder="Enter columns">
+                </div>
+            </div>
+
+            <button onclick="createMatrixInputs()" class="create-btn">
+                <span>Create Matrix</span>
+            </button>
+
+            <div id="matrixInputs" class="matrix-container"></div>
+
+            <button onclick="findInverse()" class="calculate-btn">
+                <span>Calculate Inverse</span>
+            </button>
+        </div>
+
+        <div class="result-section">
+            <h2>Inverse Matrix</h2>
+            <div id="inverseMatrix" class="matrix-result"></div>
+        </div>
+    </div>
+
+    <script src="IJE.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal().reveal('.input-section > *', {
+            delay: 200,
+            interval: 100,
+            origin: 'bottom',
+            distance: '20px',
+            easing: 'ease-out'
+        });
+    </script>
+</body>
+</html>

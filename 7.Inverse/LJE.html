@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauss-Jordan Elimination</title>
+    <link rel="stylesheet" href="LJE.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>System of Linear Equations Solver</h1>
+        <p class="subtitle">Using Gauss-Jordan Elimination Method</p>
+        
+        <div class="input-section">
+            <div class="equation-group">
+                <div class="equation">
+                    <input type="text" id="a11" placeholder="a₁₁">x + 
+                    <input type="text" id="a12" placeholder="a₁₂">y + 
+                    <input type="text" id="a13" placeholder="a₁₃">z = 
+                    <input type="text" id="b1" placeholder="b₁">
+                </div>
+                <div class="equation">
+                    <input type="text" id="a21" placeholder="a₂₁">x + 
+                    <input type="text" id="a22" placeholder="a₂₂">y + 
+                    <input type="text" id="a23" placeholder="a₂₃">z = 
+                    <input type="text" id="b2" placeholder="b₂">
+                </div>
+                <div class="equation">
+                    <input type="text" id="a31" placeholder="a₃₁">x + 
+                    <input type="text" id="a32" placeholder="a₃₂">y + 
+                    <input type="text" id="a33" placeholder="a₃₃">z = 
+                    <input type="text" id="b3" placeholder="b₃">
+                </div>
+            </div>
+            
+            <button onclick="solveEquations()" class="solve-btn">
+                <span>Solve Equations</span>
+            </button>
+        </div>
+
+        <div class="result-section">
+            <h2>Solution</h2>
+            <div id="matrix" class="matrix-result"></div>
+        </div>
+    </div>
+
+    <script src="LJE.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal().reveal('.equation-group', {
+            delay: 200,
+            interval: 100,
+            origin: 'bottom',
+            distance: '20px',
+            easing: 'ease-out'
+        });
+    </script>
+</body>
+</html>

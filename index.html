@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus Exam Preparation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/boxicons/2.0.7/css/boxicons.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calculus Exam Preparation</h1>
+        <p>Select a topic to practice and enhance your calculus skills</p>
+
+        <div class="button-container">
+            <button onclick="interpolation()">
+                <i class='bx bx-line-chart'></i>
+                <span>Interpolation</span>
+            </button>
+            <button onclick="gauss()">
+                <i class='bx bx-equalizer'></i>
+                <span>Gauss Linear Equation</span>
+            </button>
+            <button onclick="coorelate()">
+                <i class='bx bx-trending-up'></i>
+                <span>Correlation</span>
+            </button>
+            <button onclick="ni()">
+                <i class='bx bx-calculator'></i>
+                <span>Numerical Integration</span>
+            </button>
+            <button onclick="gr()">
+                <i class='bx bx-grid-alt'></i>
+                <span>Gauss Rank of Matrix</span>
+            </button>
+            <button onclick="le()">
+                <i class='bx bx-minus-front'></i>
+                <span>Linear Equation Gauss Elimination</span>
+            </button>
+            <button onclick="ji()">
+                <i class='bx bx-sort'></i>
+                <span>Gauss Jordan Elimination</span>
+            </button>
+        </div>
+    </div>
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script>
+        // Initialize ScrollReveal
+        ScrollReveal().reveal('.button-container button', {
+            delay: 200,
+            interval: 100,
+            origin: 'bottom',
+            distance: '20px',
+            easing: 'ease-out'
+        });
+
+        function interpolation() {
+            var topic = prompt("Choose a topic for Linear Algebra:\n1. Newton Interpolation\n2. Newton Divided Difference\n3. Lagrange's Interpolation");
+            if (topic !== null) {
+                switch (topic) {
+                    case "1":
+                        window.location.href = "1.Newton_interpolation/newton_interpolation.html";
+                        break;
+                    case "2":
+                        window.location.href = "1.Newton_Divided_Difference/newton_divided.html";
+                        break;
+                    case "3":
+                        window.location.href = "1.Lagrange/Lagrange.html";
+                        break;
+                    default:
+                        alert("Invalid choice. Please select a valid topic.");
+                        break;
+                }
+            }
+        }
+
+        function gauss() {
+            var topic = prompt("Choose a topic for Linear Algebra:\n1. Gauss Jacobi Method\n2. Gauss Seidal Method");
+            if (topic !== null) {
+                switch (topic) {
+                    case "1":
+                        window.location.href = "2.Gauss/gauss_jacobi.html";
+                        break;
+                    case "2":
+                        window.location.href = "2.Gauss/gauss_seidal.html";
+                        break;
+                    default:
+                        alert("Invalid choice. Please select a valid topic.");
+                        break;
+                }
+            }
+        }
+
+        function coorelate() {
+            var topic = prompt("Choose a topic for Linear Algebra:\n1. Karl Pearson's Coefficient of Correlation\n2. Spearman's Rank Correlation Coefficient");
+            if (topic !== null) {
+                switch (topic) {
+                    case "1":
+                        window.location.href = "3.Coorelation/kp.html";
+                        break;
+                    case "2":
+                        window.location.href = "3.Coorelation/sr.html";
+                        break;
+                    default:
+                        alert("Invalid choice. Please select a valid topic.");
+                        break;
+                }
+            }
+        }
+
+        function ni() {
+            var topic = prompt("Choose a topic for Linear Algebra:\n1. The Trapezoidal Rule\n2. The Simpson's 1/3 Rule\n3. The Simpson's 3/8 Rule");
+            if (topic !== null) {
+                switch (topic) {
+                    case "1":
+                        window.location.href = "4.Numerical_Integration/tr.html";
+                        break;
+                    case "2":
+                        window.location.href = "4.Numerical_Integration/si1.html";
+                        break;
+                    case "3":
+                        window.location.href = "4.Numerical_Integration/si2.html";
+                        break;
+                    default:
+                        alert("Invalid choice. Please select a valid topic.");
+                        break;
+                }
+            }
+        }
+
+        function gr() {
+            window.location.href = "5.Gauss_Rank/r.html";
+        }
+
+        function le() {
+            window.location.href = "6.Elimination/el.html"
+        }
+
+        function ji() {
+            var topic = prompt("Choose a topic for Linear Algebra:\n1. The Gauss Linear Jordan Elimination\n2. The Gauss Inverse Jordan Elimination");
+            if (topic !== null) {
+                switch (topic) {
+                    case "1":
+                        window.location.href = "7.Inverse/LJE.html";
+                        break;
+                    case "2":
+                        window.location.href = "7.Inverse/IJE.html";
+                        break;
+                    default:
+                        alert("Invalid choice. Please select a valid topic.");
+                        break;
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

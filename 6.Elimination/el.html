@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauss Elimination</title>
+    <link rel="stylesheet" href="el.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <h1>System of Linear Equations Solver</h1>
+        <p class="subtitle">Using Gauss Elimination Method</p>
+        
+        <div class="input-section">
+            <div class="equation-group">
+                <div class="equation">
+                    <input type="number" id="a11" placeholder="a₁₁" step="any">x + 
+                    <input type="number" id="a12" placeholder="a₁₂" step="any">y + 
+                    <input type="number" id="a13" placeholder="a₁₃" step="any">z = 
+                    <input type="number" id="b1" placeholder="b₁" step="any">
+                </div>
+                <div class="equation">
+                    <input type="number" id="a21" placeholder="a₂₁" step="any">x + 
+                    <input type="number" id="a22" placeholder="a₂₂" step="any">y + 
+                    <input type="number" id="a23" placeholder="a₂₃" step="any">z = 
+                    <input type="number" id="b2" placeholder="b₂" step="any">
+                </div>
+                <div class="equation">
+                    <input type="number" id="a31" placeholder="a₃₁" step="any">x + 
+                    <input type="number" id="a32" placeholder="a₃₂" step="any">y + 
+                    <input type="number" id="a33" placeholder="a₃₃" step="any">z = 
+                    <input type="number" id="b3" placeholder="b₃" step="any">
+                </div>
+            </div>
+            
+            <button onclick="solveEquations()" class="solve-btn">
+                <i class='bx bx-calculator'></i>
+                <span>Solve Equations</span>
+            </button>
+        </div>
+
+        <div class="result-section">
+            <h2>Solution</h2>
+            <div id="result" class="solution"></div>
+            
+            <h2>Row Echelon Form</h2>
+            <div id="matrix" class="matrix-result"></div>
+            
+            <h2>Solution Steps</h2>
+            <div id="steps" class="steps-section"></div>
+        </div>
+    </div>
+
+    <script src="el.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal().reveal('.equation-group', {
+            delay: 200,
+            interval: 100,
+            origin: 'bottom',
+            distance: '20px',
+            easing: 'ease-out'
+        });
+    </script>
+</body>
+</html>

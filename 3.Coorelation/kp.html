@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karl Pearson Correlation</title>
+    <link rel="stylesheet" href="kp.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Karl Pearson Correlation</h1>
+        <p class="subtitle">Calculate Pearson's correlation coefficient (r) between two variables</p>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="xValues">X Values (comma-separated)</label>
+                <input type="text" id="xValues" placeholder="e.g., 1, 2, 3, 4, 5" class="values-input">
+            </div>
+            
+            <div class="input-group">
+                <label for="yValues">Y Values (comma-separated)</label>
+                <input type="text" id="yValues" placeholder="e.g., 2, 4, 6, 8, 10" class="values-input">
+            </div>
+            
+            <button onclick="calculatePearson()" class="calculate-btn">
+                <span>Calculate Pearson's r</span>
+            </button>
+        </div>
+
+        <div class="result-section">
+            <h2>Results</h2>
+            <div id="result" class="result-content"></div>
+            <div id="steps" class="steps-section"></div>
+        </div>
+    </div>
+
+    <script src="kp.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal().reveal('.input-section', {
+            delay: 200,
+            interval: 100,
+            origin: 'bottom',
+            distance: '20px',
+            easing: 'ease-out'
+        });
+    </script>
+</body>
+
+</html>
