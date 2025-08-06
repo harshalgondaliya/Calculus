@@ -1,18 +1,9 @@
-/* gauss_jacobi.css */
+/* Gauss-Jacobi specific styles that override or extend common.css */
 
 :root {
-    --primary-color: #4a90e2;
-    --secondary-color: #2c3e50;
-    --accent-color: #e74c3c;
-    --text-color: #333;
-    --background-color: #f5f7fa;
-    --input-background: #ffffff;
-    --border-color: #d1d5db;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --success-color: #2ecc71;
-    --error-color: #e74c3c;
-    --font-size-base: 16px;
-    --spacing-unit: 1rem;
+    /* Custom colors for Gauss-Jacobi page */
+    --primary-color: #4F46E5;
+    --accent-color: #10B981;
 }
 
 * {
@@ -79,8 +70,12 @@ h3 {
     font-weight: 500;
 }
 
+/* Custom styles for the Gauss-Jacobi page */
 .input-section {
-    margin-bottom: calc(var(--spacing-unit) * 2);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: rgba(79, 70, 229, 0.05);
+    border-radius: var(--border-radius-md);
 }
 
 .input-group {
@@ -112,6 +107,21 @@ input[type="number"]:focus {
 .matrix-section {
     margin: var(--spacing-unit) 0;
     overflow-x: auto;
+}
+
+.matrix-container {
+    margin-top: var(--spacing-md);
+    overflow-x: auto;
+}
+
+.matrix-table {
+    border-collapse: separate;
+    border-spacing: 0.5rem;
+}
+
+.matrix-table input {
+    width: 5rem;
+    text-align: center;
 }
 
 table {
@@ -177,6 +187,13 @@ button:active {
     transform: translateY(0);
 }
 
+.result-section {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: rgba(16, 185, 129, 0.05);
+    border-radius: var(--border-radius-md);
+}
+
 .result-content {
     margin-top: calc(var(--spacing-unit) * 2);
     padding: var(--spacing-unit);
@@ -206,6 +223,28 @@ button:active {
     overflow-x: auto;
 }
 
+.iteration-table {
+    width: 100%;
+    margin-top: var(--spacing-md);
+    border-collapse: collapse;
+}
+
+.iteration-table th,
+.iteration-table td {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.iteration-table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.iteration-table tr:nth-child(even) {
+    background-color: rgba(79, 70, 229, 0.05);
+}
+
 .iteration-history table {
     margin: 0;
 }
@@ -219,12 +258,12 @@ button:active {
 }
 
 .error-message {
-    background-color: var(--error-color);
-    color: white;
-    padding: var(--spacing-unit);
-    border-radius: 8px;
-    text-align: center;
-    margin-top: var(--spacing-unit);
+    color: var(--error-color);
+    font-weight: 500;
+    padding: var(--spacing-sm);
+    background-color: rgba(239, 68, 68, 0.1);
+    border-radius: var(--border-radius-sm);
+    margin-top: var(--spacing-sm);
 }
 
 @media (max-width: 768px) {

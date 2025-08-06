@@ -12,6 +12,9 @@
 </head>
 
 <body>
+    <!-- Overlay for blur effect -->
+    <div id="overlay" class="overlay"></div>
+    
     <div class="container">
         <h1>Calculus Exam Preparation</h1>
         <p>Select a topic to practice and enhance your calculus skills</p>
@@ -46,6 +49,117 @@
                 <span>Gauss Jordan Elimination</span>
             </button>
         </div>
+        
+        <!-- Submenus for each category -->
+        <div class="submenu-container">
+            <!-- Interpolation Submenu -->
+            <div id="interpolation-menu" class="submenu">
+                <div class="submenu-header">
+                    <h3>Choose an Interpolation Topic</h3>
+                    <button class="close-submenu" onclick="closeAllSubmenus()">
+                        <i class='bx bx-x'></i>
+                    </button>
+                </div>
+                <div class="submenu-options">
+                    <button onclick="navigateTo('1.Newton_interpolation/newton_interpolation.html')">
+                        <i class='bx bx-chevron-right'></i>
+                        <span>Newton Interpolation</span>
+                    </button>
+                    <button onclick="navigateTo('1.Newton_Divided_Difference/newton_divided.html')">
+                        <i class='bx bx-chevron-right'></i>
+                        <span>Newton Divided Difference</span>
+                    </button>
+                    <button onclick="navigateTo('1.Lagrange/lagrange.html')">
+                        <i class='bx bx-chevron-right'></i>
+                        <span>Lagrange's Interpolation</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Gauss Linear Equation Submenu -->
+            <div id="gauss-menu" class="submenu">
+                <div class="submenu-header">
+                    <h3>Choose a Gauss Method</h3>
+                    <button class="close-submenu" onclick="closeAllSubmenus()">
+                        <i class='bx bx-x'></i>
+                    </button>
+                </div>
+                <div class="submenu-options">
+                    <button onclick="navigateTo('2.Gauss/gauss_jacobi.html')">
+                        <i class='bx bx-chevron-right'></i>
+                        <span>Gauss Jacobi Method</span>
+                    </button>
+                    <button onclick="navigateTo('2.Gauss/gauss_seidal.html')">
+                        <i class='bx bx-chevron-right'></i>
+                        <span>Gauss Seidal Method</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Correlation Submenu -->
+            <div id="correlation-menu" class="submenu">
+                <div class="submenu-header">
+                    <h3>Choose a Correlation Method</h3>
+                    <button class="close-submenu" onclick="closeAllSubmenus()">
+                        <i class='bx bx-x'></i>
+                    </button>
+                </div>
+                <div class="submenu-options">
+                    <button onclick="navigateTo('3.Coorelation/kp.html')">
+                        <i class='bx bx-chevron-right'></i>
+                        <span>Karl Pearson's Coefficient of Correlation</span>
+                    </button>
+                    <button onclick="navigateTo('3.Coorelation/sr.html')">
+                        <i class='bx bx-chevron-right'></i>
+                        <span>Spearman's Rank Correlation Coefficient</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Numerical Integration Submenu -->
+            <div id="numerical-integration-menu" class="submenu">
+                <div class="submenu-header">
+                    <h3>Choose a Numerical Integration Method</h3>
+                    <button class="close-submenu" onclick="closeAllSubmenus()">
+                        <i class='bx bx-x'></i>
+                    </button>
+                </div>
+                <div class="submenu-options">
+                    <button onclick="navigateTo('4.Numerical_Integration/tr.html')">
+                        <i class='bx bx-chevron-right'></i>
+                        <span>The Trapezoidal Rule</span>
+                    </button>
+                    <button onclick="navigateTo('4.Numerical_Integration/si1.html')">
+                        <i class='bx bx-chevron-right'></i>
+                        <span>The Simpson's 1/3 Rule</span>
+                    </button>
+                    <button onclick="navigateTo('4.Numerical_Integration/si2.html')">
+                        <i class='bx bx-chevron-right'></i>
+                        <span>The Simpson's 3/8 Rule</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Jordan Elimination Submenu -->
+            <div id="jordan-elimination-menu" class="submenu">
+                <div class="submenu-header">
+                    <h3>Choose a Jordan Elimination Method</h3>
+                    <button class="close-submenu" onclick="closeAllSubmenus()">
+                        <i class='bx bx-x'></i>
+                    </button>
+                </div>
+                <div class="submenu-options">
+                    <button onclick="navigateTo('7.Inverse/LJE.html')">
+                        <i class='bx bx-chevron-right'></i>
+                        <span>The Gauss Linear Jordan Elimination</span>
+                    </button>
+                    <button onclick="navigateTo('7.Inverse/IJE.html')">
+                        <i class='bx bx-chevron-right'></i>
+                        <span>The Gauss Inverse Jordan Elimination</span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
     <!--===== SCROLL REVEAL =====-->
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -60,78 +174,48 @@
             easing: 'ease-out'
         });
 
-        function interpolation() {
-            var topic = prompt("Choose a topic for Linear Algebra:\n1. Newton Interpolation\n2. Newton Divided Difference\n3. Lagrange's Interpolation");
-            if (topic !== null) {
-                switch (topic) {
-                    case "1":
-                        window.location.href = "1.Newton_interpolation/newton_interpolation.html";
-                        break;
-                    case "2":
-                        window.location.href = "1.Newton_Divided_Difference/newton_divided.html";
-                        break;
-                    case "3":
-                        window.location.href = "1.Lagrange/Lagrange.html";
-                        break;
-                    default:
-                        alert("Invalid choice. Please select a valid topic.");
-                        break;
-                }
+        function showSubMenu(menuId) {
+            // Hide all submenus first
+            document.querySelectorAll('.submenu').forEach(menu => {
+                menu.style.display = 'none';
+            });
+            
+            // Show the overlay
+            document.getElementById('overlay').classList.add('active');
+            
+            // Show the selected submenu
+            const submenu = document.getElementById(menuId);
+            if (submenu) {
+                submenu.style.display = 'block';
+                submenu.classList.add('active');
             }
+        }
+        
+        function closeAllSubmenus() {
+            // Hide all submenus
+            document.querySelectorAll('.submenu').forEach(menu => {
+                menu.style.display = 'none';
+                menu.classList.remove('active');
+            });
+            
+            // Hide the overlay
+            document.getElementById('overlay').classList.remove('active');
+        }
+        
+        function interpolation() {
+            showSubMenu('interpolation-menu');
         }
 
         function gauss() {
-            var topic = prompt("Choose a topic for Linear Algebra:\n1. Gauss Jacobi Method\n2. Gauss Seidal Method");
-            if (topic !== null) {
-                switch (topic) {
-                    case "1":
-                        window.location.href = "2.Gauss/gauss_jacobi.html";
-                        break;
-                    case "2":
-                        window.location.href = "2.Gauss/gauss_seidal.html";
-                        break;
-                    default:
-                        alert("Invalid choice. Please select a valid topic.");
-                        break;
-                }
-            }
+            showSubMenu('gauss-menu');
         }
 
         function coorelate() {
-            var topic = prompt("Choose a topic for Linear Algebra:\n1. Karl Pearson's Coefficient of Correlation\n2. Spearman's Rank Correlation Coefficient");
-            if (topic !== null) {
-                switch (topic) {
-                    case "1":
-                        window.location.href = "3.Coorelation/kp.html";
-                        break;
-                    case "2":
-                        window.location.href = "3.Coorelation/sr.html";
-                        break;
-                    default:
-                        alert("Invalid choice. Please select a valid topic.");
-                        break;
-                }
-            }
+            showSubMenu('correlation-menu');
         }
 
         function ni() {
-            var topic = prompt("Choose a topic for Linear Algebra:\n1. The Trapezoidal Rule\n2. The Simpson's 1/3 Rule\n3. The Simpson's 3/8 Rule");
-            if (topic !== null) {
-                switch (topic) {
-                    case "1":
-                        window.location.href = "4.Numerical_Integration/tr.html";
-                        break;
-                    case "2":
-                        window.location.href = "4.Numerical_Integration/si1.html";
-                        break;
-                    case "3":
-                        window.location.href = "4.Numerical_Integration/si2.html";
-                        break;
-                    default:
-                        alert("Invalid choice. Please select a valid topic.");
-                        break;
-                }
-            }
+            showSubMenu('numerical-integration-menu');
         }
 
         function gr() {
@@ -143,21 +227,28 @@
         }
 
         function ji() {
-            var topic = prompt("Choose a topic for Linear Algebra:\n1. The Gauss Linear Jordan Elimination\n2. The Gauss Inverse Jordan Elimination");
-            if (topic !== null) {
-                switch (topic) {
-                    case "1":
-                        window.location.href = "7.Inverse/LJE.html";
-                        break;
-                    case "2":
-                        window.location.href = "7.Inverse/IJE.html";
-                        break;
-                    default:
-                        alert("Invalid choice. Please select a valid topic.");
-                        break;
-                }
-            }
+            showSubMenu('jordan-elimination-menu');
         }
+        
+        // Navigation functions for submenu items
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+        
+        // Close all submenus when clicking outside or on the overlay
+        document.addEventListener('click', function(event) {
+            if ((!event.target.closest('.button-container') && !event.target.closest('.submenu-container')) || 
+                event.target.classList.contains('overlay')) {
+                closeAllSubmenus();
+            }
+        });
+        
+        // Also close submenus when escape key is pressed
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeAllSubmenus();
+            }
+        });
     </script>
 
 </body>
